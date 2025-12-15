@@ -10,6 +10,12 @@ function App() {
       <div>
         <header className="app-header">
           <div className="header-content">
+            <a
+              href="https://ivanvinkesevic.github.io/DidIvanovidvori/"
+              style={{ marginLeft: "20px", color: "white" }}
+            >
+              ← Povratak na glavnu stranicu
+            </a>
             <img
               src="/irs-logo2.png"
               alt="OPG Platforma Logo"
