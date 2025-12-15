@@ -8,12 +8,18 @@ function AllOPGs() {
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + "/data/opg-data.json")
       .then((response) => {
+        console.log("Response status:", response.status, response.ok);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
-      .then((data) => setData(data))
+      .then((data) => {
+        console.log("Podaci došli:", data);
+        console.log("Broj OPG-ova:", data.length);
+
+        setData(data);
+      })
       .catch((error) => setError(error.toString()));
   }, []);
 

@@ -34,7 +34,7 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/opg-app/" element={<AllOPGs />} />
+          <Route path="/" element={<AllOPGs />} />
           <Route path="/proizvodjaci" element={<OPGByCategory />} />
           <Route path="/kontakt" element={<Contact />} />
         </Routes>
