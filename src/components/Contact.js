@@ -2,7 +2,7 @@ function Contact() {
   return (
     <div className="sadrzaj CTA">
       <h1>Kontaktirajte nas!</h1>
-      <h4>Ovo je neprofitna inicijativa za podršku lokalnim OPG-ovima</h4>
+      <h4>Neka vašu nekretninu nađu preko naše stranice</h4>
       <ul>
         <li>
           <strong className="udruga-ime">Autor:</strong>{" "}
@@ -22,13 +22,13 @@ function Contact() {
         </li>
         <br />
         <li>
-          <strong>Napomena:</strong> Ovo je edukacijski projekt
+          <strong>Napomena:</strong> Oglašavanje na našoj tražilici je besplatno
         </li>
         <br />
       </ul>
       <hr />
       <br />
-      <p>Ako ste OPG i želite biti uključeni, kontaktirajte nas!</p>
+      <p>Ako prodajete ili tražite nekretninu, kontaktirajte nas!</p>
     </div>
   );
 }

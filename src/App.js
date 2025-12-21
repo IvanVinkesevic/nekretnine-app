@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import AllOPGs from "./components/AllOPGs";
-import OPGByCategory from "./components/OPGByCategory";
+import AllProperties from "./components/AllProperties";
+import PropertiesByType from "./components/PropertiesByType";
 import Contact from "./components/Contact";
+import SubmitProperty from "./components/SubmitProperty";
 
 function App() {
   return (
@@ -16,37 +17,41 @@ function App() {
             >
               ← Povratak na glavnu stranicu
             </a>
-            <img
-              src="/irs-logo2.png"
-              alt="OPG Platforma Logo"
-              className="logo"
-            />
+            {/*  LOGO: */}
+            <img src="/irs-logo2.png" alt="Platforma Logo" className="logo" />
+            {/* PROMIJENI NASLOV: */}
             <h1>
-              OPG Platforma -<span> DidIvanovidvori</span>{" "}
+              Kuće na selu -<span> Pronađite svoj kutak mira</span>{" "}
             </h1>
           </div>
         </header>
+
+        {/* NAVIGACIJA: */}
         <nav>
           <ul>
             <li>
-              <Link to="/">Svi OPG-ovi</Link>
+              <Link to="/">Sve kuće na selu</Link>
             </li>
             <li>
-              <Link to="/proizvodjaci">Prema kategoriji</Link>
+              <Link to="/vrste-imanja">Vrste imanja</Link>
+            </li>
+            <li>
+              <Link to="/objavi-nekretninu">Objavi nekretninu</Link>
             </li>
             <li>
               <Link to="/kontakt">Kontakt</Link>
             </li>
           </ul>
         </nav>
+
         <Routes>
-          <Route path="/" element={<AllOPGs />} />
-          <Route path="/proizvodjaci" element={<OPGByCategory />} />
+          <Route path="/" element={<AllProperties />} />
+          <Route path="/vrste-imanja" element={<PropertiesByType />} />
           <Route path="/kontakt" element={<Contact />} />
+          <Route path="/objavi-nekretninu" element={<SubmitProperty />} />
         </Routes>
       </div>
     </BrowserRouter>
   );
 }
-
 export default App;

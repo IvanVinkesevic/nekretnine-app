@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "naziv": "Kamena kuća u Čazmi",
+    "lokacija": "Čazma, Donji Štefanki",
+    "tip": "seoska-kuca",
+    "zemljiste": 20000,
+    "cijena": 45000,
+    "opis": "Autentična kamena kuća s 2 hektara zemlje, voćnjakom i starom šumom. Idealna za samodostatnost.",
+    "slika": ""
+  },
+  {
+    "id": 2,
+    "naziv": "Imanje u Garešnici",
+    "lokacija": "Garešnica, Stara Plošćica",
+    "tip": "imanje",
+    "zemljiste": 35000,
+    "cijena": 75000,
+    "opis": "Obiteljsko imanje s tradicionalnom drvenom kućom, štalom i potokom.",
+    "slika": ""
+  },
+  {
+    "id": 3,
+    "naziv": "Zemljište kod Bjelovara",
+    "lokacija": "Bjelovar, Brezovac",
+    "tip": "zemljiste",
+    "zemljiste": 5000,
+    "cijena": 15000,
+    "opis": "Ravno poljoprivredno zemljište pogodno za gradnju.",
+    "slika": ""
+  },
+  {
+    "id": 4,
+    "naziv": "Vikendica u šumi kod Ivanske",
+    "lokacija": "Ivanska, Šumska dolina",
+    "tip": "vikendica",
+    "zemljiste": 3000,
+    "cijena": 18000,
+    "opis": "Drvena vikendica na rubu šume, idealna za vikend odmor.",
+    "slika": ""
+  },
+  {
+    "id": 5,
+    "naziv": "Imanje sa jezerom",
+    "lokacija": "Garešnica, Jezerski put",
+    "tip": "imanje",
+    "zemljiste": 50000,
+    "cijena": 120000,
+    "opis": "Veliko imanje s vlastitim jezerom i ribnjakom.",
+    "slika": ""
+  },
+  {
+    "id": 6,
+    "naziv": "Kuća sa okućnicom",
+    "lokacija": "Čazma, Bosiljevo",
+    "tip": "imanje",
+    "zemljiste": 30000,
+    "cijena": 20000,
+    "opis": "Kuća s velikom okućnicom",
+    "slika": ""
+  },
+  {
+    "id": 6,
+    "naziv": "Šuma kod Miklouša",
+    "lokacija": "Čazma, Miklouš",
+    "tip": "bukova šuma",
+    "zemljiste": 30000,
+    "cijena": 15000,
+    "opis": "Bukova šuma",
+    "slika": ""
+  },
+  {
+    "id": 6,
+    "naziv": "Kuća iz 19.stoljeća",
+    "lokacija": "Samarica, Ivanska",
+    "tip": "Gospodska kuća",
+    "zemljiste": 20000,
+    "cijena": 15000,
+    "opis": "Stara kuća u Samarici, neuseljiva, započeto preuređenje",
+    "slika": "https://i.ibb.co/4RV9523z/Ku-a-jugozapad.jpg"
+  }
+]
