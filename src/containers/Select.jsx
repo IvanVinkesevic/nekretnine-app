@@ -28,11 +28,15 @@ function Select(props) {
             value={props.selectedLocation || "0"}
           >
             <option value="0">Sve lokacije</option>
-            <option value="cazma">Čazma</option>
-            <option value="ivanska">Ivanska</option>
-            <option value="bjelovar">Bjelovar</option>
-            <option value="garesnica">Garešnica</option>
-            <option value="ivanic-grad">Ivanić grad</option>
+            <option value="Čazma">Čazma</option>
+            <option value="Ivanska">Ivanska</option>
+            <option value="Bjelovar">Bjelovar</option>
+            <option value="Garešnica">Garešnica</option>
+            <option value="Ivanic-grad">Ivanić grad</option>
+            <option value="Popovača">Popovača</option>
+            <option value="Križ">Križ</option>
+            <option value="Narta">Narta</option>
+            <option value="Berek">Berek</option>
           </select>
         </div>
       </div>

@@ -38,15 +38,24 @@ function PropertiesByType() {
 
   // Funkcija za primjenu svih filtera
   const applyFilters = (category, location, minPrice, maxPrice) => {
+    console.log("=== APPLY FILTERS ===");
+    console.log("Parametri:", { category, location, minPrice, maxPrice });
     let filtered = [...allData];
+    console.log("Ukupno nekretnina:", allData.length);
 
     // Filter po tipu
     if (category && category !== "0") {
+      console.log("Filtriram po tipu:", category);
       filtered = filtered.filter((nekretnina) => nekretnina.tip === category);
     }
 
     // Filter po lokaciji
     if (location && location !== "0") {
+      console.log("Filtriram po lokaciji:", location);
+      console.log("Sve lokacije u podacima:", [
+        ...new Set(allData.map((n) => n.lokacija)),
+      ]);
+
       filtered = filtered.filter(
         (nekretnina) => nekretnina.lokacija === location
       );

@@ -1,5 +1,5 @@
 // components/SubmitProperty.jsx
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function SubmitProperty() {
   const [formData, setFormData] = useState({
@@ -16,34 +16,83 @@ function SubmitProperty() {
     terms: false,
   });
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedUrls, setUploadedUrls] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
-  // Tvoj Formspree endpoint za nekretnine
+  const fileInputRef = useRef(null);
+
+  // API ključevi
+  const IMGBB_API_KEY = "3814110caf5c0aef9d0d59b2366820a1";
   const FORMSPREE_URL = "https://formspree.io/f/xdandkpj";
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+  // Odabir slika
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files);
+    setSelectedFiles(files);
   };
 
+  // Upload na imgBB
+  const uploadToImgBB = async () => {
+    if (selectedFiles.length === 0) return [];
+
+    setIsUploading(true);
+    const urls = [];
+
+    for (const file of selectedFiles) {
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("key", IMGBB_API_KEY);
+
+      try {
+        const response = await fetch("https://api.imgbb.com/1/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          urls.push(data.data.url);
+        }
+      } catch (error) {
+        console.error("Greška pri uploadu:", error);
+      }
+    }
+
+    setIsUploading(false);
+    setUploadedUrls(urls);
+
+    // Spremi URL-ove u formu
+    setFormData((prev) => ({
+      ...prev,
+      images: urls.join("\n"),
+    }));
+
+    return urls;
+  };
+
+  // Pošalji formu
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prvo uploadaj slike ako postoje
+    if (selectedFiles.length > 0 && uploadedUrls.length === 0) {
+      await uploadToImgBB();
+    }
+
     setIsSubmitting(true);
 
     try {
       const response = await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           _subject: `Nova nekretnina za objavu: ${formData.propertyType} u ${formData.location}`,
           _replyto: formData.contactEmail,
+          uploadedImages: uploadedUrls,
         }),
       });
 
@@ -65,6 +114,9 @@ function SubmitProperty() {
           additionalInfo: "",
           terms: false,
         });
+        setSelectedFiles([]);
+        setUploadedUrls([]);
+        if (fileInputRef.current) fileInputRef.current.value = "";
       } else {
         setSubmitMessage("❌ Došlo je do greške. Pokušajte ponovno.");
       }
@@ -75,8 +127,17 @@ function SubmitProperty() {
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
   return (
     <div className="submit-property-container">
+      {/* HEADER - NE MIJENJAJ */}
       <div className="submit-header">
         <h1>Objavite svoju nekretninu</h1>
         <p className="subtitle">
@@ -85,6 +146,7 @@ function SubmitProperty() {
         </p>
       </div>
 
+      {/* INFO BOXES - NE MIJENJAJ */}
       <div className="submit-info">
         <div className="info-box">
           <h3>📋 Što nudimo?</h3>
@@ -126,7 +188,9 @@ function SubmitProperty() {
         </div>
       </div>
 
+      {/* FORMA - OVDJE JE GLANVI DIO */}
       <form onSubmit={handleSubmit} className="property-form">
+        {/* OSNOVNI PODACI - ISTO KAO PRIJE */}
         <div className="form-section">
           <h3>📝 Osnovni podaci o nekretnini</h3>
 
@@ -214,22 +278,138 @@ function SubmitProperty() {
             />
           </div>
 
+          {/* NOVO: UPLOAD SLIKA - OVO JE DODANO */}
           <div className="form-group">
-            <label htmlFor="images">Linkovi na slike (opcionalno)</label>
+            <label htmlFor="images">Fotografije nekretnine</label>
+
+            <div style={{ marginBottom: "15px" }}>
+              <input
+                type="file"
+                id="fileInput"
+                ref={fileInputRef}
+                multiple
+                accept="image/*"
+                onChange={handleFileSelect}
+                style={{
+                  display: "block",
+                  marginBottom: "10px",
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                  borderRadius: "5px",
+                  width: "100%",
+                }}
+              />
+
+              {selectedFiles.length > 0 && (
+                <div style={{ margin: "15px 0" }}>
+                  <p>
+                    <strong>Odabrane slike ({selectedFiles.length}):</strong>
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "10px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    {selectedFiles.map((file, index) => (
+                      <div
+                        key={index}
+                        style={{ position: "relative", width: "100px" }}
+                      >
+                        <img
+                          src={URL.createObjectURL(file)}
+                          alt={`Preview ${index}`}
+                          style={{
+                            width: "100%",
+                            height: "80px",
+                            objectFit: "cover",
+                            borderRadius: "5px",
+                            border: "1px solid #ddd",
+                          }}
+                        />
+                        <small
+                          style={{
+                            fontSize: "10px",
+                            display: "block",
+                            textAlign: "center",
+                            marginTop: "5px",
+                            wordBreak: "break-all",
+                          }}
+                        >
+                          {file.name.length > 15
+                            ? file.name.substring(0, 12) + "..."
+                            : file.name}
+                        </small>
+                      </div>
+                    ))}
+                  </div>
+
+                  {selectedFiles.length > 0 && uploadedUrls.length === 0 && (
+                    <button
+                      type="button"
+                      onClick={uploadToImgBB}
+                      disabled={isUploading}
+                      style={{
+                        backgroundColor: isUploading ? "#ccc" : "#4CAF50",
+                        color: "white",
+                        border: "none",
+                        padding: "10px 20px",
+                        borderRadius: "5px",
+                        cursor: isUploading ? "not-allowed" : "pointer",
+                        marginTop: "15px",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {isUploading
+                        ? "📤 Uploadam slike..."
+                        : `📤 Uploadaj ${selectedFiles.length} slika`}
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {uploadedUrls.length > 0 && (
+                <div
+                  style={{
+                    backgroundColor: "#d4edda",
+                    color: "#155724",
+                    padding: "12px",
+                    borderRadius: "5px",
+                    marginTop: "15px",
+                    border: "1px solid #c3e6cb",
+                  }}
+                >
+                  ✅ {uploadedUrls.length} slika uspješno uploadano!
+                </div>
+              )}
+            </div>
+
             <textarea
               id="images"
               name="images"
               value={formData.images}
               onChange={handleChange}
               rows="3"
-              placeholder="URL linkovi na fotografije (Google Drive, Dropbox, OneDrive...) ili nam možete poslati slike emailom"
+              placeholder="URL linkovi će se automatski popuniti nakon uploada..."
+              readOnly={uploadedUrls.length > 0}
+              style={{
+                backgroundColor: uploadedUrls.length > 0 ? "#f8f9fa" : "white",
+                cursor: uploadedUrls.length > 0 ? "not-allowed" : "text",
+              }}
             />
-            <small className="hint">Minimalno 2-3 slike preporučeno</small>
+            <small className="hint">
+              {uploadedUrls.length > 0
+                ? "Slike su spremljene na sigurni server. Ovo polje je automatski popunjeno."
+                : "Preporučeno: 3-10 slika (JPG, PNG, max 5MB po slici)"}
+            </small>
           </div>
 
           <div className="form-group">
             <label htmlFor="additionalInfo">
-              Dodatne informacje (opcionalno)
+              Dodatne informacije (opcionalno)
             </label>
             <textarea
               id="additionalInfo"
@@ -242,6 +422,7 @@ function SubmitProperty() {
           </div>
         </div>
 
+        {/* KONTAKT PODACI - NE MIJENJAJ */}
         <div className="form-section">
           <h3>📞 Vaši kontakt podaci</h3>
 
@@ -289,6 +470,7 @@ function SubmitProperty() {
           </div>
         </div>
 
+        {/* CHECKBOXOVI - NE MIJENJAJ */}
         <div className="form-section">
           <div className="form-group checkbox">
             <input
@@ -321,6 +503,7 @@ function SubmitProperty() {
           </div>
         </div>
 
+        {/* PORUKA NAKON SUBMIT - NE MIJENJAJ */}
         {submitMessage && (
           <div
             className={`submit-message ${
@@ -331,21 +514,32 @@ function SubmitProperty() {
           </div>
         )}
 
+        {/* SUBMIT BUTTON - MALO PROMIJENJEN */}
         <button
           type="submit"
           className="submit-btn"
-          disabled={isSubmitting || !formData.terms}
+          disabled={isSubmitting || !formData.terms || isUploading}
+          style={{
+            opacity: isSubmitting || !formData.terms || isUploading ? 0.6 : 1,
+            cursor:
+              isSubmitting || !formData.terms || isUploading
+                ? "not-allowed"
+                : "pointer",
+          }}
         >
           {isSubmitting ? (
             <>
               <span className="spinner"></span>
               Šaljem podatke...
             </>
+          ) : isUploading ? (
+            "Uploadam slike..."
           ) : (
             "Pošalji podatke o nekretnini"
           )}
         </button>
 
+        {/* FOOTNOTES - NE MIJENJAJ */}
         <div className="form-note">
           <p>
             <strong>Što se događa nakon slanja?</strong>

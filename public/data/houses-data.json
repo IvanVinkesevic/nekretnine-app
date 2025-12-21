@@ -2,7 +2,7 @@
   {
     "id": 1,
     "naziv": "Kamena kuća u Čazmi",
-    "lokacija": "Čazma, Donji Štefanki",
+    "lokacija": "Čazma",
     "tip": "seoska-kuca",
     "zemljiste": 20000,
     "cijena": 45000,
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "naziv": "Imanje u Garešnici",
-    "lokacija": "Garešnica, Stara Plošćica",
+    "lokacija": "Garešnica",
     "tip": "imanje",
     "zemljiste": 35000,
     "cijena": 75000,
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "naziv": "Zemljište kod Bjelovara",
-    "lokacija": "Bjelovar, Brezovac",
+    "lokacija": "Bjelovar",
     "tip": "zemljiste",
     "zemljiste": 5000,
     "cijena": 15000,
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "naziv": "Vikendica u šumi kod Ivanske",
-    "lokacija": "Ivanska, Šumska dolina",
+    "lokacija": "Ivanska",
     "tip": "vikendica",
     "zemljiste": 3000,
     "cijena": 18000,
@@ -42,7 +42,7 @@
   {
     "id": 5,
     "naziv": "Imanje sa jezerom",
-    "lokacija": "Garešnica, Jezerski put",
+    "lokacija": "Garešnica",
     "tip": "imanje",
     "zemljiste": 50000,
     "cijena": 120000,
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "naziv": "Kuća sa okućnicom",
-    "lokacija": "Čazma, Bosiljevo",
+    "lokacija": "Čazma",
     "tip": "imanje",
     "zemljiste": 30000,
     "cijena": 20000,
@@ -60,10 +60,10 @@
     "slika": ""
   },
   {
-    "id": 6,
+    "id": 7,
     "naziv": "Šuma kod Miklouša",
-    "lokacija": "Čazma, Miklouš",
-    "tip": "bukova šuma",
+    "lokacija": "Čazma",
+    "tip": "suma",
     "zemljiste": 30000,
     "cijena": 15000,
     "opis": "Bukova šuma",
@@ -72,8 +72,8 @@
   {
     "id": 6,
     "naziv": "Kuća iz 19.stoljeća",
-    "lokacija": "Samarica, Ivanska",
-    "tip": "Gospodska kuća",
+    "lokacija": "Ivanska",
+    "tip": "seoska-kuca",
     "zemljiste": 20000,
     "cijena": 15000,
     "opis": "Stara kuća u Samarici, neuseljiva, započeto preuređenje",
