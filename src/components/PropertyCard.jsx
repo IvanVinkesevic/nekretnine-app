@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function PropertyCard({ property }) {
   // Mapiranje vrijednosti za prikaz
   const getTypeLabel = (type) => {
@@ -208,56 +210,11 @@ function PropertyCard({ property }) {
         )}
 
         {/* Akcijski gumbi */}
-        <div
-          className="property-actions"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "10px",
-          }}
-        >
-          <button
-            className="view-details-btn"
-            style={{
-              backgroundColor: "#1a5f7a",
-              color: "white",
-              border: "none",
-              padding: "12px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: "600",
-              fontSize: "0.95rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              transition: "background-color 0.3s",
-            }}
-          >
+        <div className="property-actions">
+          <Link to={`/nekretnina/${property.id}`} className="view-details-btn">
             <span>🔍</span>
             <span>Detalji</span>
-          </button>
-          <button
-            className="contact-btn"
-            style={{
-              backgroundColor: "#2e7d32",
-              color: "white",
-              border: "none",
-              padding: "12px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: "600",
-              fontSize: "0.95rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              transition: "background-color 0.3s",
-            }}
-          >
-            <span>📞</span>
-            <span>Kontakt</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

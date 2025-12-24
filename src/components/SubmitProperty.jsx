@@ -139,10 +139,12 @@ function SubmitProperty() {
     <div className="submit-property-container">
       {/* HEADER - NE MIJENJAJ */}
       <div className="submit-header">
-        <h1>Objavite svoju nekretninu</h1>
+        <h1>Oglasite svoju nekretninu</h1>
         <p className="subtitle">
-          Prodajete ili iznajmljujete nekretninu na selu? Besplatno je objavite
-          na našoj platformi i doprinesite razvoju ruralnih zajednica.
+          <strong>
+            Prodajete nekretninu na selu? Besplatno je oglasite na našoj
+            platformi i doprinesite razvoju ruralnih zajednica.
+          </strong>
         </p>
       </div>
 
@@ -180,6 +182,10 @@ function SubmitProperty() {
             </li>
             <li>
               Preferiramo <strong>pristupačne cijene</strong> za mlade
+            </li>
+            <li>
+              Mi ne sudjelujemo ni na koji način <strong>u kupoprodaji</strong>.
+              Samo želimo pomoći mladima u izboru.
             </li>
             <li>
               Svi podaci se <strong>provjeravaju</strong> prije objave

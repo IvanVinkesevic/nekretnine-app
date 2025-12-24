@@ -1,23 +1,43 @@
 [
   {
     "id": 1,
-    "naziv": "Kamena kuća u Čazmi",
-    "lokacija": "Čazma",
+    "naziv": "Zidana kuća u Samarici",
+    "lokacija": "Ivanska",
     "tip": "seoska-kuca",
     "zemljiste": 20000,
     "cijena": 45000,
-    "opis": "Autentična kamena kuća s 2 hektara zemlje, voćnjakom i starom šumom. Idealna za samodostatnost.",
-    "slika": ""
+    "opis": "Gospodska kuća, prizemnica (200m2)iz 19.stoljeća s 2 hektara zemlje.",
+    "slika": "",
+    "kontakt": {
+      "ime": "Ivan Vinkešević",
+      "telefon": "+385 91 3900 416",
+      "email": "drivanhicks@gmail.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1880,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 2,
-    "naziv": "Imanje u Garešnici",
-    "lokacija": "Garešnica",
-    "tip": "imanje",
+    "naziv": "Kuća u Begovači",
+    "lokacija": "Berek",
+    "tip": "seoska-kuca",
     "zemljiste": 35000,
-    "cijena": 75000,
-    "opis": "Obiteljsko imanje s tradicionalnom drvenom kućom, štalom i potokom.",
-    "slika": ""
+    "cijena": 14000,
+    "opis": "Seoska kuća s velikom okućnicom",
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 3,
@@ -27,7 +47,17 @@
     "zemljiste": 5000,
     "cijena": 15000,
     "opis": "Ravno poljoprivredno zemljište pogodno za gradnju.",
-    "slika": ""
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 4,
@@ -37,7 +67,17 @@
     "zemljiste": 3000,
     "cijena": 18000,
     "opis": "Drvena vikendica na rubu šume, idealna za vikend odmor.",
-    "slika": ""
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 5,
@@ -47,7 +87,17 @@
     "zemljiste": 50000,
     "cijena": 120000,
     "opis": "Veliko imanje s vlastitim jezerom i ribnjakom.",
-    "slika": ""
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 6,
@@ -57,7 +107,17 @@
     "zemljiste": 30000,
     "cijena": 20000,
     "opis": "Kuća s velikom okućnicom",
-    "slika": ""
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
     "id": 7,
@@ -67,16 +127,36 @@
     "zemljiste": 30000,
     "cijena": 15000,
     "opis": "Bukova šuma",
-    "slika": ""
+    "slika": "",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   },
   {
-    "id": 6,
-    "naziv": "Kuća iz 19.stoljeća",
+    "id": 8,
+    "naziv": "Kuća iz 1980.",
     "lokacija": "Ivanska",
     "tip": "seoska-kuca",
     "zemljiste": 20000,
     "cijena": 15000,
     "opis": "Stara kuća u Samarici, neuseljiva, započeto preuređenje",
-    "slika": "https://i.ibb.co/4RV9523z/Ku-a-jugozapad.jpg"
+    "slika": "https://i.ibb.co/4RV9523z/Ku-a-jugozapad.jpg",
+    "kontakt": {
+      "ime": "Marko Marić",
+      "telefon": "+385 98 765 4321",
+      "email": "marko.maric@email.com"
+    },
+    "dodatno": {
+      "godinaIzgradnje": 1950,
+      "stanje": "Za renovaciju",
+      "komunalije": "Struja i bunar"
+    }
   }
 ]

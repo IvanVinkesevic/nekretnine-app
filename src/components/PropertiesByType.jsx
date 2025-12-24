@@ -134,21 +134,7 @@ function PropertiesByType() {
         maxPrice={maxPrice}
       />
 
-      <button
-        className="reset-filters-btn"
-        onClick={resetFilters}
-        style={{
-          background: "#f8f9fa",
-          border: "2px solid #dee2e6",
-          color: "#495057",
-          padding: "10px 20px",
-          borderRadius: "5px",
-          cursor: "pointer",
-          fontSize: "1rem",
-          margin: "15px 0",
-          transition: "all 0.3s ease",
-        }}
-      >
+      <button className="reset-filters-btn" onClick={resetFilters}>
         Poništi sve filtere
       </button>
 

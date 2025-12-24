@@ -22,7 +22,9 @@ function Contact() {
         </li>
         <br />
         <li>
-          <strong>Napomena:</strong> Oglašavanje na našoj tražilici je besplatno
+          <strong>Napomena:</strong> Oglašavanje na našoj tražilici je
+          besplatno. IRS ne posreduje u kupoprodaji. Naš jedini interes je{" "}
+          <strong>sretna mlada hrvatska obitelj</strong>.
         </li>
         <br />
       </ul>

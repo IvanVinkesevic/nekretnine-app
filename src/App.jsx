@@ -4,6 +4,7 @@ import AllProperties from "./components/AllProperties";
 import PropertiesByType from "./components/PropertiesByType";
 import Contact from "./components/Contact";
 import SubmitProperty from "./components/SubmitProperty";
+import PropertyDetails from "./components/PropertyDetails";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
               href="https://ivanvinkesevic.github.io/DidIvanovidvori/"
               style={{ marginLeft: "20px", color: "white" }}
             >
-              ← Povratak na glavnu stranicu
+              ← Povratak na početnu stranicu
             </a>
             {/*  LOGO: */}
             <img src="/irs-logo2.png" alt="Platforma Logo" className="logo" />
@@ -30,13 +31,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Sve kuće na selu</Link>
+              <Link to="/">Sve nekretnine</Link>
             </li>
             <li>
-              <Link to="/vrste-imanja">Vrste imanja</Link>
+              <Link to="/vrste-imanja">Vrste nekretnina</Link>
             </li>
             <li>
-              <Link to="/objavi-nekretninu">Objavi nekretninu</Link>
+              <Link to="/objavi-nekretninu">Oglasi nekretninu</Link>
             </li>
             <li>
               <Link to="/kontakt">Kontakt</Link>
@@ -49,6 +50,7 @@ function App() {
           <Route path="/vrste-imanja" element={<PropertiesByType />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/objavi-nekretninu" element={<SubmitProperty />} />
+          <Route path="/nekretnina/:id" element={<PropertyDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
